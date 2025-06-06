@@ -42,20 +42,7 @@ const LicenseConsentModal = () => {
 
   const recordAgplConsent = () => {
     setAcknowledgeDisabled(true);
-
-    fetch("https://dl.min.io/server/minio/agplv3-ack", {
-      mode: "no-cors",
-    })
-      .then(() => {
-        setLicenseConsent(); //to Local storage.
-        dispatch(setAcknowledgeLicense(true));
-        setAcknowledgeDisabled(false);
-      })
-      .catch(() => {
-        setAcknowledgeDisabled(false);
-        console.error("Error while trying to Acknowledge the license");
-        dispatch(setAcknowledgeLicense(true));
-      });
+    setLicenseConsent(); //to Local storage.
   };
 
   if (licenseAcknowledged) {
